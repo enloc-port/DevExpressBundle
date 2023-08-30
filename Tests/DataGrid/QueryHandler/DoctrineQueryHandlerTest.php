@@ -106,14 +106,9 @@ class DoctrineQueryHandlerTest extends TestCase
     public function testAddSorting()
     {
         $config = $this->getConfigMock();
-        $config->expects($this->at(0)) //???
-                ->method('mapField')
-                ->with('lol')
-                ->willReturn('lol');
-        $config->expects($this->at(1))
+        $config->expects( $this->exactly( 2 ) )
             ->method('mapField')
-            ->with('haha')
-            ->willReturn('haha');
+            ->willReturnOnConsecutiveCalls( 'lol', 'haha');
 
         $query = $this->getQueryMock();
         $query->expects($this->once())
@@ -124,12 +119,12 @@ class DoctrineQueryHandlerTest extends TestCase
                 ]);
 
         $qb = $this->getQBMock();
-        $qb->expects($this->at(0))
+        $qb->expects($this->exactly( 2 ))
             ->method('addOrderBy')
-            ->with('lol', 'desc');
-        $qb->expects($this->at(1))
-            ->method('addOrderBy')
-            ->with('haha', 'asc');
+            ->willReturn([
+                new SearchSort('lol', true),
+                new SearchSort('haha', false),
+            ]);
         $handler = new DoctrineQueryHandler($config, $qb, $query);
         $handler->addSorting();
     }
