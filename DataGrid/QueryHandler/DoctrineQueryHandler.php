@@ -71,9 +71,9 @@ class DoctrineQueryHandler
     /**
      * @param string $value
      *
-     * @return string
+     * @return string|null
      */
-    public function transformValueCase(string $value): string
+    public function transformValueCase(string $value): ?string
     {
         if ($this->queryConfig->isCaseSensitive()) {
             return $value;
