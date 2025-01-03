@@ -50,7 +50,7 @@ class CompositeExpression implements Visitable
      *
      * @return $this
      */
-    public function addExpression(Visitable $expression)
+    public function addExpression(Visitable $expression): CompositeExpression
     {
         $this->expressions[] = $expression;
 

@@ -78,7 +78,7 @@ class ComparisonExpression implements Visitable
      *
      * @return mixed
      */
-    public function visit(AbstractExpressionVisitor $visitor)
+    public function visit(AbstractExpressionVisitor $visitor): mixed
     {
         return $visitor->visitComparison($this);
     }
