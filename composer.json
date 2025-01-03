@@ -21,9 +21,9 @@
     },
     "require": {
         "php": "^8.1",
-        "doctrine/orm": "^3.3",
+        "doctrine/orm": "^2.15.0",
         "lstrojny/functional-php": "^1.4",
-        "symfony/framework-bundle": "^2.6|^3.2|^4.4|^5.0|^6.0",
+        "symfony/framework-bundle": "^4.4|^5.0|^6.0",
         "ext-mbstring": "*"
     },
     "require-dev": {
