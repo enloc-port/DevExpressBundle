@@ -137,6 +137,8 @@ class DoctrineExpressionVisitor extends AbstractExpressionVisitor
             case ComparisonExpression::NE:
                 return $this->expr->neq($fieldName, $operand);
             case ComparisonExpression::CONTAINS:
+                $ids = str_split(",", $value);
+                return $this->expr->in($fieldName, );
             case ComparisonExpression::STARTSWITH:
             case ComparisonExpression::ENDSWITH:
                 return $this->expr->like($fieldName, $operand);

@@ -64,7 +64,7 @@ class SearchQueryParser
      *
      * @throws NotNumericException
      */
-    public function parseStartIndex(\stdClass $data)
+    public function parseStartIndex(\stdClass $data): void
     {
         if (is_numeric($data->skip)) {
             $this->builder->setStartIndex((int)$data->skip);
@@ -78,7 +78,7 @@ class SearchQueryParser
      *
      * @throws NotNumericException
      */
-    public function parseMaxResults(\stdClass $data)
+    public function parseMaxResults(\stdClass $data): void
     {
         if (is_numeric($data->take)) {
             $this->builder->setMaxResults((int)$data->take);
@@ -92,7 +92,7 @@ class SearchQueryParser
      *
      * @throws NotArrayException
      */
-    public function parseSort(\stdClass $data)
+    public function parseSort(\stdClass $data): void
     {
         if (is_array($data->sort)) {
             \Functional\map(

@@ -49,7 +49,7 @@ class DoctrineQueryConfig
     /**
      * @param array $defaultFilters
      */
-    public function setDefaultFilters(array $defaultFilters)
+    public function setDefaultFilters(array $defaultFilters): void
     {
         $this->defaultFilters = $defaultFilters;
     }
@@ -65,7 +65,7 @@ class DoctrineQueryConfig
     /**
      * @param array $fieldMapping
      */
-    public function setFieldMapping(array $fieldMapping)
+    public function setFieldMapping(array $fieldMapping): void
     {
         $this->fieldMapping = $fieldMapping;
     }
@@ -75,7 +75,7 @@ class DoctrineQueryConfig
      *
      * @return string
      */
-    public function mapField(string $field)
+    public function mapField(string $field): string
     {
         if (array_key_exists($field, $this->fieldMapping)) {
             return $this->fieldMapping[$field];
@@ -95,7 +95,7 @@ class DoctrineQueryConfig
     /**
      * @param bool $caseSensitive
      */
-    public function setCaseSensitive(bool $caseSensitive)
+    public function setCaseSensitive(bool $caseSensitive): void
     {
         $this->caseSensitive = $caseSensitive;
     }
